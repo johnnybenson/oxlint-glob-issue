@@ -1,0 +1,21 @@
+{
+  "name": "oxlint-glob-issue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "oxlint": "^1.5.0"
+  },
+  "scripts": {
+    "lint:0:ok": "oxlint",
+    "lint:1:ok": "oxlint ./src/index.ts",
+    "lint:2:ok": "find ./src -name '*.ts' | xargs oxlint",
+    "lint:3:ok": "oxlint $(ls ./src/**/*.ts)",
+    "lint:4:nok": "oxlint ./src/**/*.ts",
+    "lint:5:nok": "oxlint './src/**/*.ts'",
+    "lint:6:nok": "oxlint $(echo './src/**/*.ts')",
+    "lint:7:nok": "oxlint \"./src/**/*.ts\"",
+    "lint:8:nok": "oxlint ./src/\\*\\*.ts",
+    "lint:9:nok": "oxlint ./src/\\*\\*/\\*.ts"
+  }
+}
